@@ -1,217 +1,218 @@
-1|1|1|1|<!DOCTYPE html>
-2|2|2|2|<html lang="en">
-3|3|3|3|<head>
-4|4|4|4|    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-5|5|5|5|    <meta name="keywords" content="indie developer, product launch, growth story, indie hacker, solo developer, side project">
-6|6|6|6|    <meta name="description" content="独立开发者产品发布、增长案例、工具推荐、社区讨论。每周精选Hacker News和Product Hunt上的独立开发者动态。">
-7|7|7|7|    <title>独立开发者周刊 - 产品发布、增长故事、工具推荐</title>
-8|8|8|8|    <script type="application/ld+json">
-9|9|9|9|    {
-10|10|10|10|        "@context": "https://schema.org",
-11|11|11|11|        "@type": "WebSite",
-12|12|12|12|        "name": "独立开发者周刊",
-13|13|13|13|        "url": "http://indie.globalxyz.xyz/",
-14|14|14|14|        "description": "独立开发者产品发布、增长案例、工具推荐、社区讨论"
-15|15|15|15|    }
-16|16|16|16|    </script>
-17|17|17|17|    <script type="application/ld+json">
-18|18|18|18|    {
-19|19|19|19|        "@context": "https://schema.org",
-20|20|20|20|        "@type": "CollectionPage",
-21|21|21|21|        "name": "独立开发者周刊 - 产品发布、增长故事、工具推荐",
-22|22|22|22|        "description": "独立开发者产品发布、增长案例、工具推荐、社区讨论。每周精选Hacker News和Product Hunt上的独立开发者动态。",
-23|23|23|23|        "url": "http://indie.globalxyz.xyz/",
-24|24|24|24|        "isPartOf": {
-25|25|25|25|            "@type": "WebSite",
-26|26|26|26|            "name": "AI站群",
-27|27|27|27|            "url": "http://ai-daily.globalxyz.xyz/"
-28|28|28|28|        }
-29|29|29|29|    }
-30|30|30|30|    </script>
-31|31|31|31|    <style>
-32|32|32|32|*{margin:0;padding:0;box-sizing:border-box}
-33|33|33|33|body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.8;color:#333;max-width:800px;margin:0 auto;padding:20px;background:#f5f5f5}
-34|34|34|34|header{text-align:center;padding:40px 0 30px;border-bottom:2px solid #9b59b6;margin-bottom:30px}
-35|35|35|35|header h1{font-size:2em;color:#9b59b6}
-36|36|36|36|.date-badge{display:inline-block;background:#9b59b6;color:white;padding:4px 16px;border-radius:20px;font-size:0.9em;margin-top:12px}
-37|37|37|37|.card{background:white;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
-38|38|38|38|.card h2{color:#9b59b6;font-size:1.3em;margin-bottom:8px}
-39|39|39|39|.card .meta{color:#999;font-size:0.85em;margin-bottom:12px}
-40|40|40|40|.card .meta span{margin-right:12px}
-41|41|41|41|.card p{margin-bottom:10px}
-42|42|42|42|.card .tags{margin-top:12px}
-43|43|43|43|.tag{display:inline-block;background:#f0e8f8;color:#9b59b6;padding:2px 10px;border-radius:4px;font-size:0.8em;margin-right:6px}
-44|44|44|44|.source{margin-top:12px;font-size:0.85em}.source a{color:#9b59b6;text-decoration:none}
-45|45|45|45|footer{text-align:center;padding:30px 0;color:#999;font-size:0.85em}
-46|46|46|46|@media (max-width: 600px) {
-47|47|47|47|    body { padding: 10px; }
-48|48|48|48|    header h1 { font-size: 1.5em; }
-49|49|49|49|    .card { padding: 16px; }
-50|50|50|50|    .card h2 { font-size: 1.1em; }
-51|51|51|51|}
-52|52|52|52|    </style>
-53|53|53|53|    <meta property="og:title" content="独立开发者周刊 - 产品发布、增长故事、工具推荐">
-54|54|54|54|    <meta property="og:description" content="独立开发者产品发布、增长案例、工具推荐、社区讨论。每周精选Hacker News和Product Hunt上的独立开发者动态。">
-55|55|55|55|    <meta property="og:type" content="website">
-56|56|56|56|    <meta property="og:url" content="https://indie.globalxyz.xyz/" />
-57|57|57|57|    <meta property="og:site_name" content="Indie Developer Weekly" />
-58|58|58|58|    <meta name="twitter:card" content="summary_large_image">
-59|59|59|59|    <meta name="twitter:title" content="独立开发者周刊 - 产品发布、增长故事、工具推荐">
-60|60|60|60|    <meta name="twitter:description" content="独立开发者产品发布、增长案例、工具推荐、社区讨论。每周精选Hacker News和Product Hunt上的独立开发者动态。">
-61|61|61|61|    <link rel="canonical" href="https://indie.globalxyz.xyz/" />
-62|62|62|62|</head>
-63|63|63|63|    <style>
-64|64|64|64|        .lang-switch{position:fixed;top:15px;right:15px;z-index:9999;display:flex;border-radius:20px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.15);font-size:13px}
-65|65|65|65|        .lang-switch button{border:none;padding:6px 14px;cursor:pointer;font-weight:500;transition:all .2s}
-66|66|66|66|        .lang-switch .lang-en{background:#1a1a2e;color:#fff}
-67|67|67|67|        .lang-switch .lang-zh{background:#fff;color:#333;border:1px solid #ddd}
-68|68|68|68|        .lang-switch .lang-en.active{background:#3b82f6;color:#fff}
-69|69|69|69|        .lang-switch .lang-zh.active{background:#ef4444;color:#fff;border-color:#ef4444}
-70|70|70|70|        .lang-switch button:hover{opacity:.85}
-71|71|71|71|        .zh-content{display:none}
-72|72|72|72|        body.lang-zh .en-content{display:none}
-73|73|73|73|        body.lang-zh .zh-content{display:block}
-74|74|74|74|    </style>
-75|75|75|75|<body class="lang-en">
-76|76|76|76|    <div class="lang-switch">
-77|77|77|77|        <button class="lang-en active" onclick="setLang('en')">English</button>
-78|78|78|78|        <button class="lang-zh" onclick="setLang('zh')">中文</button>
-79|79|79|79|    </div>
-80|80|80|80|<header><h1 class="en-content">🧑‍💻 Indie Developer Weekly</h1><h1 class="zh-content" style="display:none">🧑‍💻 独立开发者周刊</h1><p>独立开发者产品发布、增长故事、工具推荐</p><div class="date-badge">2026年06月17日</div></header>
-81|81|81|81|
-82|82|82|82|        <div class="card">
-83|83|83|83|            <h2>🔥 Hacker News 今日热门（2026-06-17）</h2>
-84|84|84|84|            <div class="meta">
-85|85|85|85|                <span>📅 2026年06月17日</span>
-86|86|86|86|                <span>📌 Hacker News Top 10</span>
-87|87|87|87|            </div>
-88|88|88|88|            <p>今日 Hacker News 最受关注的 10 个话题，涵盖 AI、开源、系统架构和开发者文化。</p>
-89|89|89|89|            <ul style="margin:10px 0 10px 20px;list-style:disc">
-90|90|90|90|                <li><strong>Running local models is good now</strong> — 916分，本地运行大模型的体验终于好了起来，社区讨论了 Llama.cpp、Ollama 等工具的最新进展和对独立开发者的意义。</li>
-91|91|91|91|                <li><strong>SpaceX to buy Cursor for $60B</strong> — 792分，SpaceX 收购 AI 编码工具 Cursor 的传闻引发热议，讨论集中在 AI 编码工具的商业价值和未来格局。</li>
-92|92|92|92|                <li><strong>Mechanical Watch (2022)</strong> — 600分，一篇关于机械表制造的深度文章，展现了精密工程的魅力，社区讨论延伸到硬件创业和小批量制造。</li>
-93|93|93|93|                <li><strong>GrapheneOS has been ported to Android 17</strong> — 191分，GrapheneOS 移植到 Android 17，隐私和安全领域的重要进展，开源社区为此兴奋。</li>
-94|94|94|94|                <li><strong>TIL: You can make HTTP requests without curl using Bash /dev/TCP</strong> — 205分，用 Bash 内置方法发起 HTTP 请求的技巧，展示了 Unix 系统的强大和简洁。</li>
-95|95|95|95|                <li><strong>Stop Using JWTs</strong> — 182分，讨论 JWT 的安全问题和替代方案，对独立开发者来说是很好的安全实践参考。</li>
-96|96|96|96|                <li><strong>GPT-NL: a sovereign language model for the Netherlands</strong> — 116分，荷兰政府支持的主权语言模型项目，引发关于 AI 主权和本地化的大讨论。</li>
-97|97|97|97|                <li><strong>Has AI already killed self-help nonfiction books?</strong> — 100分，AI 对出版行业的冲击，内容创作者该如何应对？</li>
-98|98|98|98|                <li><strong>Calvin and Hobbes and the price of integrity</strong> — 211分，一篇关于创作完整性和商业压力的深度反思。</li>
-99|99|99|99|                <li><strong>But yak shaving is fun (2019)</strong> — 185分，关于" yak shaving"（为了做A需要先做B，为了做B又需要做C...）的经典文章重登 HN，引发共鸣。</li>
-100|100|100|100|            </ul>
-101|101|101|101|            <div class="tags"><span class="tag">#HackerNews</span><span class="tag">#热门</span><span class="tag">#AI</span><span class="tag">#开源</span></div>
-102|102|102|102|            <div class="source">🔗 <a href="https://news.ycombinator.com/" target="_blank">https://news.ycombinator.com/</a></div>
-103|103|103|103|        </div>
-104|104|104|104|
-105|105|105|105|        <div class="card">
-106|106|106|106|            <h2>🚀 Product Hunt 今日发布</h2>
-107|107|107|107|            <div class="meta">
-108|108|108|108|                <span>📅 2026年06月16日</span>
-109|109|109|109|                <span>📌 Product Hunt</span>
-110|110|110|110|            </div>
-111|111|111|111|            <p>今日 Product Hunt 上的热门新工具和产品发布。本周有不少 AI 相关的独立开发者项目亮相，包括 AI 写作助手、代码审查工具和自动化测试平台。其中一款基于 GPT-4o 的多语言翻译工具获得了当日 Top 3 的好成绩，上线 24 小时内就获得了 500+ upvote。</p>
-112|112|112|112|            <p>值得关注的是，越来越多的独立开发者开始采用"微型 SaaS"策略——用极简的功能解决特定痛点，月费 $9-$29，快速验证市场。这种模式降低了启动门槛，也让 Product Hunt 上的产品类型更加多样化。</p>
-113|113|113|113|            <div class="tags"><span class="tag">#发布</span><span class="tag">#新产品</span><span class="tag">#AI</span></div>
-114|114|114|114|            <div class="source">🔗 <a href="https://www.producthunt.com/" target="_blank">https://www.producthunt.com/</a></div>
-115|115|115|115|        </div>
-116|116|116|116|
-117|117|117|117|        <div style="background:#f9f9f9;border:2px dashed #ddd;border-radius:12px;padding:20px;text-align:center;margin-bottom:20px;color:#999;font-size:0.85em">📢 广告位 - Google AdSense</div>
-118|118|118|118|
-119|119|119|119|        <div class="card">
-120|120|120|120|            <h2>📖 独立开发者本月精选工具</h2>
-121|121|121|121|            <div class="meta">
-122|122|122|122|                <span>📅 2026年06月17日</span>
-123|123|123|123|                <span>📌 Curated</span>
-124|124|124|124|            </div>
-125|125|125|125|            <p>适合独立开发者使用的效率工具：Notion、Linear、Vercel、Resend、Supabase。本月新增了几个值得关注的工具——Resend 正式支持了批量邮件发送功能，Linear 推出了 AI 自动分类需求的新特性。</p>
-126|126|126|126|            <p>此外，Cursor 作为 AI 代码编辑器持续迭代，越来越多的独立开发者将其作为主力开发工具。结合 Supabase 做后端、Vercel 做部署，这套技术栈几乎覆盖了从开发到上线的全流程，而且大部分都有慷慨的免费套餐。</p>
-127|127|127|127|            <div class="tags"><span class="tag">#工具</span><span class="tag">#效率</span><span class="tag">#技术栈</span></div>
-128|128|128|128|            <div class="source">🔗 <a href="https://github.com/" target="_blank">https://github.com/</a></div>
-129|129|129|129|        </div>
-130|130|130|130|
-131|131|131|131|        <div class="card">
-132|132|132|132|            <h2>📖 增长案例：从0到$10K MRR</h2>
-133|133|133|133|            <div class="meta">
-134|134|134|134|                <span>📅 2026年06月16日</span>
-135|135|135|135|                <span>📌 Indie Hackers</span>
-136|136|136|136|            </div>
-137|137|137|137|            <p>独立开发者如何用3个月时间将产品从0做到$10K月经常性收入。这位开发者分享了他的完整路径：第1个月通过 Twitter 做冷启动获取了 200 个种子用户，第2个月根据反馈快速迭代了 3 个核心功能，第3个月通过 SEO 和内容营销实现了自然增长。</p>
-138|138|138|138|            <p>关键策略包括：在 Product Hunt 首发获取初始曝光、建立邮件列表做用户培育、以及通过免费试用+限时折扣的组合拳提升转化率。他强调"速度"是独立开发者最大的优势——大公司做决策要两周，你一天就能上线新功能。</p>
-139|139|139|139|            <div class="tags"><span class="tag">#增长</span><span class="tag">#案例</span><span class="tag">#MRR</span></div>
-140|140|140|140|            <div class="source">🔗 <a href="https://www.indiehackers.com/" target="_blank">https://www.indiehackers.com/</a></div>
-141|141|141|141|        </div>
-142|142|142|142|
-143|143|143|143|        <div style="background:#f9f9f9;border:2px dashed #ddd;border-radius:12px;padding:20px;text-align:center;margin-bottom:20px;color:#999;font-size:0.85em">📢 广告位 - Google AdSense</div>
-144|144|144|144|
-145|145|145|145|        <div class="card">
-146|146|146|146|            <h2>📖 Solo Developer 技术栈推荐</h2>
-147|147|147|147|            <div class="meta">
-148|148|148|148|                <span>📅 2026年06月17日</span>
-149|149|149|149|                <span>📌 Community</span>
-150|150|150|150|            </div>
-151|151|151|151|            <p>2026年独立开发者最佳技术栈：Next.js + Supabase + Vercel + Stripe。这套组合之所以被社区广泛推荐，是因为它在开发效率、部署成本和扩展性之间取得了极好的平衡。Next.js 的 App Router 和 Server Components 大幅简化了全栈开发的心智负担。</p>
-152|152|152|152|            <p>Supabase 提供了数据库、认证和存储的一站式方案，Vercel 负责部署和 CDN，Stripe 处理支付——四个工具各司其职，几乎没有重叠。社区中不少月入 $5K-$20K 的独立开发者都在使用这套技术栈，证明了它在实际商业场景中的可靠性。</p>
-153|153|153|153|            <div class="tags"><span class="tag">#技术栈</span><span class="tag">#推荐</span><span class="tag">#全栈</span></div>
-154|154|154|154|            <div class="source">🔗 <a href="https://github.com/" target="_blank">https://github.com/</a></div>
-155|155|155|155|        </div>
-156|156|156|156|
-157|157|157|157|        <div class="card">
-158|158|158|158|            <h2>💰 本周融资动态</h2>
-159|159|159|159|            <div class="meta">
-160|160|160|160|                <span>📅 2026年06月16日</span>
-161|161|161|161|                <span>📌 Crunchbase</span>
-162|162|162|162|            </div>
-163|163|163|163|            <p>本周独立开发者和微型 SaaS 领域的融资动态：一款 AI 驱动的客服聊天工具获得了 $2M 种子轮，创始人此前是 Stripe 的工程师；一款面向中小电商的库存管理 SaaS 完成了 $1.5M Pre-Seed 融资，产品从 idea 到上线只用了 6 周。</p>
-164|164|164|164|            <p>值得注意的趋势是，越来越多的天使投资人开始关注"一人公司"模式的项目——他们认为小团队在 AI 时代拥有更大的杠杆效应。一些知名独立开发者如 Pieter Levels 也在社交媒体上分享了自己的投资计划，计划孵化 10 个独立开发者项目。</p>
-165|165|165|165|            <div class="tags"><span class="tag">#融资</span><span class="tag">#投资</span><span class="tag">#趋势</span></div>
-166|166|166|166|            <div class="source">🔗 <a href="https://www.crunchbase.com/" target="_blank">https://www.crunchbase.com/</a></div>
-167|167|167|167|        </div>
-168|168|168|168|
-169|169|169|169|        <div style="background:#f9f9f9;border:2px dashed #ddd;border-radius:12px;padding:20px;text-align:center;margin-bottom:20px;color:#999;font-size:0.85em">📢 广告位 - Google AdSense</div>
-170|170|170|170|
-171|171|171|171|        <div class="card">
-172|172|172|172|            <h2>🧑‍💻 开发者社区热门话题</h2>
-173|173|173|173|            <div class="meta">
-174|174|174|174|                <span>📅 2026年06月17日</span>
-175|175|175|175|                <span>📌 Hacker News & Twitter/X</span>
-176|176|176|176|            </div>
-177|177|177|177|            <p>本周开发者社区最火的话题是"本地大模型时代来临"——随着 Llama.cpp 和 Ollama 的成熟，在消费级硬件上运行 70B 模型已经不是梦。这对独立开发者意味着什么？不再需要支付昂贵的 API 费用，可以更自由地实验 AI 功能。</p>
-178|178|178|178|            <p>另一个热议话题来自 HN 上的"Mechanical Watch"帖子——它引发了很多开发者对硬件创业的兴趣。一些开发者分享了从软件转向硬件的经历，以及小批量制造的可行路径。</p>
-179|179|179|179|            <div class="tags"><span class="tag">#社区</span><span class="tag">#话题</span><span class="tag">#AI</span><span class="tag">#本地模型</span></div>
-180|180|180|180|            <div class="source">🔗 <a href="https://news.ycombinator.com/" target="_blank">https://news.ycombinator.com/</a></div>
-181|181|181|181|        </div>
-182|182|182|182|
-183|183|183|183|<div style="background:linear-gradient(135deg,#667eea,#764ba2);border-radius:16px;padding:32px;text-align:center;margin:30px 0;color:white">
-184|184|184|184|<h3 style="margin-bottom:8px">📬 订阅获取每周精选</h3>
-185|185|185|185|<p style="opacity:0.9;margin-bottom:16px;font-size:0.9em">每周一封邮件，精选好工具和好资源</p>
-186|186|186|186|<div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap">
-187|187|187|187|<input type="email" placeholder="your@email.com" style="padding:10px 16px;border:none;border-radius:8px;font-size:0.95em;width:240px">
-188|188|188|188|<button style="padding:10px 24px;background:white;color:#667eea;border:none;border-radius:8px;font-weight:600;cursor:pointer">订阅</button>
-189|189|189|189|</div>
-190|190|190|190|</div>
-191|191|191|191|
-192|192|192|192|<footer><p>Generated by Hermes Agent · Updated 2026-06-17</p></footer>
-193|193|193|193|<nav style="text-align:center;padding:24px 0;border-top:1px solid #eee;margin-top:30px">
-194|194|194|194|<p style="color:#666;margin-bottom:12px;font-size:0.9em">🔗 AI站群旗下站点</p>
-195|195|195|195|<div style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px">
-196|196|196|196|<a href="http://ai-daily.globalxyz.xyz/" style="color:#7b2ff7;text-decoration:none;font-size:0.9em">🤖 AI日报</a>
-197|197|197|197|<a href="http://interview.globalxyz.xyz/" style="color:#3b82f6;text-decoration:none;font-size:0.9em">🚀 English Interview</a> | <a href="http://aihot.globalxyz.xyz/" style="color:#3b82f6;text-decoration:none;font-size:0.9em">📊 AI Hot</a>
-198|198|198|198|<a href="http://chuangye.globalxyz.xyz/" style="color:#27ae60;text-decoration:none;font-size:0.9em">🌏 出海工具周报</a>
-199|199|199|199|<a href="http://indie.globalxyz.xyz/" style="color:#9b59b6;text-decoration:none;font-size:0.9em">🧑‍💻 独立开发者周刊</a>
-200|200|200|200|<a href="http://nocode.globalxyz.xyz/" style="color:#f39c12;text-decoration:none;font-size:0.9em">🔧 NoCode工具导航</a>
-201|201|201|201|</div>
-202|202|202|202|</nav>
-203|203|203|203|    <script>
-204|204|204|204|    function setLang(lang) {
-205|205|205|205|        document.body.className = 'lang-' + lang;
-206|206|206|206|        document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
-207|207|207|207|        document.querySelector('.lang-switch .lang-' + lang).classList.add('active');
-208|208|208|208|        localStorage.setItem('site_lang', lang);
-209|209|209|209|    }
-210|210|210|210|    (function() {
-211|211|211|211|        var saved = localStorage.getItem('site_lang') || 'en';
-212|212|212|212|        setLang(saved);
-213|213|213|213|    })();
-214|214|214|214|    </script>
-215|215|215|215|<nav class="site-nav" style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:20px"><p style="color:#999;margin-bottom:10px">更多站点：</p><a href="/ai-daily-news/">AI日报站</a> | <a href="/english-interview/">English Interview Q&A</a> | <a href="/chuangye-weekly/">出海工具周报</a> | <a href="/nocode-tools/">NoCode工具导航</a></nav>
-216|</body>
-217|216|216|216|</html>
+1|1|1|1|1|<!DOCTYPE html>
+2|2|2|2|2|<html lang="en">
+3|3|3|3|3|<head>
+    <link rel="preconnect" href="https://shijiezhichang.github.io" crossorigin>
+4|4|4|4|4|    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+5|5|5|5|5|    <meta name="keywords" content="indie developer, product launch, growth story, indie hacker, solo developer, side project">
+6|6|6|6|6|    <meta name="description" content="独立开发者产品发布、增长案例、工具推荐、社区讨论。每周精选Hacker News和Product Hunt上的独立开发者动态。">
+7|7|7|7|7|    <title>独立开发者周刊 - 产品发布、增长故事、工具推荐</title>
+8|8|8|8|8|    <script type="application/ld+json">
+9|9|9|9|9|    {
+10|10|10|10|10|        "@context": "https://schema.org",
+11|11|11|11|11|        "@type": "WebSite",
+12|12|12|12|12|        "name": "独立开发者周刊",
+13|13|13|13|13|        "url": "http://indie.globalxyz.xyz/",
+14|14|14|14|14|        "description": "独立开发者产品发布、增长案例、工具推荐、社区讨论"
+15|15|15|15|15|    }
+16|16|16|16|16|    </script>
+17|17|17|17|17|    <script type="application/ld+json">
+18|18|18|18|18|    {
+19|19|19|19|19|        "@context": "https://schema.org",
+20|20|20|20|20|        "@type": "CollectionPage",
+21|21|21|21|21|        "name": "独立开发者周刊 - 产品发布、增长故事、工具推荐",
+22|22|22|22|22|        "description": "独立开发者产品发布、增长案例、工具推荐、社区讨论。每周精选Hacker News和Product Hunt上的独立开发者动态。",
+23|23|23|23|23|        "url": "http://indie.globalxyz.xyz/",
+24|24|24|24|24|        "isPartOf": {
+25|25|25|25|25|            "@type": "WebSite",
+26|26|26|26|26|            "name": "AI站群",
+27|27|27|27|27|            "url": "http://ai-daily.globalxyz.xyz/"
+28|28|28|28|28|        }
+29|29|29|29|29|    }
+30|30|30|30|30|    </script>
+31|31|31|31|31|    <style>
+32|32|32|32|32|*{margin:0;padding:0;box-sizing:border-box}
+33|33|33|33|33|body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.8;color:#333;max-width:800px;margin:0 auto;padding:20px;background:#f5f5f5}
+34|34|34|34|34|header{text-align:center;padding:40px 0 30px;border-bottom:2px solid #9b59b6;margin-bottom:30px}
+35|35|35|35|35|header h1{font-size:2em;color:#9b59b6}
+36|36|36|36|36|.date-badge{display:inline-block;background:#9b59b6;color:white;padding:4px 16px;border-radius:20px;font-size:0.9em;margin-top:12px}
+37|37|37|37|37|.card{background:white;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+38|38|38|38|38|.card h2{color:#9b59b6;font-size:1.3em;margin-bottom:8px}
+39|39|39|39|39|.card .meta{color:#999;font-size:0.85em;margin-bottom:12px}
+40|40|40|40|40|.card .meta span{margin-right:12px}
+41|41|41|41|41|.card p{margin-bottom:10px}
+42|42|42|42|42|.card .tags{margin-top:12px}
+43|43|43|43|43|.tag{display:inline-block;background:#f0e8f8;color:#9b59b6;padding:2px 10px;border-radius:4px;font-size:0.8em;margin-right:6px}
+44|44|44|44|44|.source{margin-top:12px;font-size:0.85em}.source a{color:#9b59b6;text-decoration:none}
+45|45|45|45|45|footer{text-align:center;padding:30px 0;color:#999;font-size:0.85em}
+46|46|46|46|46|@media (max-width: 600px) {
+47|47|47|47|47|    body { padding: 10px; }
+48|48|48|48|48|    header h1 { font-size: 1.5em; }
+49|49|49|49|49|    .card { padding: 16px; }
+50|50|50|50|50|    .card h2 { font-size: 1.1em; }
+51|51|51|51|51|}
+52|52|52|52|52|    </style>
+53|53|53|53|53|    <meta property="og:title" content="独立开发者周刊 - 产品发布、增长故事、工具推荐">
+54|54|54|54|54|    <meta property="og:description" content="独立开发者产品发布、增长案例、工具推荐、社区讨论。每周精选Hacker News和Product Hunt上的独立开发者动态。">
+55|55|55|55|55|    <meta property="og:type" content="website">
+56|56|56|56|56|    <meta property="og:url" content="https://indie.globalxyz.xyz/" />
+57|57|57|57|57|    <meta property="og:site_name" content="Indie Developer Weekly" />
+58|58|58|58|58|    <meta name="twitter:card" content="summary_large_image">
+59|59|59|59|59|    <meta name="twitter:title" content="独立开发者周刊 - 产品发布、增长故事、工具推荐">
+60|60|60|60|60|    <meta name="twitter:description" content="独立开发者产品发布、增长案例、工具推荐、社区讨论。每周精选Hacker News和Product Hunt上的独立开发者动态。">
+61|61|61|61|61|    <link rel="canonical" href="https://indie.globalxyz.xyz/" />
+62|62|62|62|62|</head>
+63|63|63|63|63|    <style>
+64|64|64|64|64|        .lang-switch{position:fixed;top:15px;right:15px;z-index:9999;display:flex;border-radius:20px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.15);font-size:13px}
+65|65|65|65|65|        .lang-switch button{border:none;padding:6px 14px;cursor:pointer;font-weight:500;transition:all .2s}
+66|66|66|66|66|        .lang-switch .lang-en{background:#1a1a2e;color:#fff}
+67|67|67|67|67|        .lang-switch .lang-zh{background:#fff;color:#333;border:1px solid #ddd}
+68|68|68|68|68|        .lang-switch .lang-en.active{background:#3b82f6;color:#fff}
+69|69|69|69|69|        .lang-switch .lang-zh.active{background:#ef4444;color:#fff;border-color:#ef4444}
+70|70|70|70|70|        .lang-switch button:hover{opacity:.85}
+71|71|71|71|71|        .zh-content{display:none}
+72|72|72|72|72|        body.lang-zh .en-content{display:none}
+73|73|73|73|73|        body.lang-zh .zh-content{display:block}
+74|74|74|74|74|    </style>
+75|75|75|75|75|<body class="lang-en">
+76|76|76|76|76|    <div class="lang-switch">
+77|77|77|77|77|        <button class="lang-en active" onclick="setLang('en')">English</button>
+78|78|78|78|78|        <button class="lang-zh" onclick="setLang('zh')">中文</button>
+79|79|79|79|79|    </div>
+80|80|80|80|80|<header><h1 class="en-content">🧑‍💻 Indie Developer Weekly</h1><h1 class="zh-content" style="display:none">🧑‍💻 独立开发者周刊</h1><p>独立开发者产品发布、增长故事、工具推荐</p><div class="date-badge">2026年06月17日</div></header>
+81|81|81|81|81|
+82|82|82|82|82|        <div class="card">
+83|83|83|83|83|            <h2>🔥 Hacker News 今日热门（2026-06-17）</h2>
+84|84|84|84|84|            <div class="meta">
+85|85|85|85|85|                <span>📅 2026年06月17日</span>
+86|86|86|86|86|                <span>📌 Hacker News Top 10</span>
+87|87|87|87|87|            </div>
+88|88|88|88|88|            <p>今日 Hacker News 最受关注的 10 个话题，涵盖 AI、开源、系统架构和开发者文化。</p>
+89|89|89|89|89|            <ul style="margin:10px 0 10px 20px;list-style:disc">
+90|90|90|90|90|                <li><strong>Running local models is good now</strong> — 916分，本地运行大模型的体验终于好了起来，社区讨论了 Llama.cpp、Ollama 等工具的最新进展和对独立开发者的意义。</li>
+91|91|91|91|91|                <li><strong>SpaceX to buy Cursor for $60B</strong> — 792分，SpaceX 收购 AI 编码工具 Cursor 的传闻引发热议，讨论集中在 AI 编码工具的商业价值和未来格局。</li>
+92|92|92|92|92|                <li><strong>Mechanical Watch (2022)</strong> — 600分，一篇关于机械表制造的深度文章，展现了精密工程的魅力，社区讨论延伸到硬件创业和小批量制造。</li>
+93|93|93|93|93|                <li><strong>GrapheneOS has been ported to Android 17</strong> — 191分，GrapheneOS 移植到 Android 17，隐私和安全领域的重要进展，开源社区为此兴奋。</li>
+94|94|94|94|94|                <li><strong>TIL: You can make HTTP requests without curl using Bash /dev/TCP</strong> — 205分，用 Bash 内置方法发起 HTTP 请求的技巧，展示了 Unix 系统的强大和简洁。</li>
+95|95|95|95|95|                <li><strong>Stop Using JWTs</strong> — 182分，讨论 JWT 的安全问题和替代方案，对独立开发者来说是很好的安全实践参考。</li>
+96|96|96|96|96|                <li><strong>GPT-NL: a sovereign language model for the Netherlands</strong> — 116分，荷兰政府支持的主权语言模型项目，引发关于 AI 主权和本地化的大讨论。</li>
+97|97|97|97|97|                <li><strong>Has AI already killed self-help nonfiction books?</strong> — 100分，AI 对出版行业的冲击，内容创作者该如何应对？</li>
+98|98|98|98|98|                <li><strong>Calvin and Hobbes and the price of integrity</strong> — 211分，一篇关于创作完整性和商业压力的深度反思。</li>
+99|99|99|99|99|                <li><strong>But yak shaving is fun (2019)</strong> — 185分，关于" yak shaving"（为了做A需要先做B，为了做B又需要做C...）的经典文章重登 HN，引发共鸣。</li>
+100|100|100|100|100|            </ul>
+101|101|101|101|101|            <div class="tags"><span class="tag">#HackerNews</span><span class="tag">#热门</span><span class="tag">#AI</span><span class="tag">#开源</span></div>
+102|102|102|102|102|            <div class="source">🔗 <a href="https://news.ycombinator.com/" target="_blank">https://news.ycombinator.com/</a></div>
+103|103|103|103|103|        </div>
+104|104|104|104|104|
+105|105|105|105|105|        <div class="card">
+106|106|106|106|106|            <h2>🚀 Product Hunt 今日发布</h2>
+107|107|107|107|107|            <div class="meta">
+108|108|108|108|108|                <span>📅 2026年06月16日</span>
+109|109|109|109|109|                <span>📌 Product Hunt</span>
+110|110|110|110|110|            </div>
+111|111|111|111|111|            <p>今日 Product Hunt 上的热门新工具和产品发布。本周有不少 AI 相关的独立开发者项目亮相，包括 AI 写作助手、代码审查工具和自动化测试平台。其中一款基于 GPT-4o 的多语言翻译工具获得了当日 Top 3 的好成绩，上线 24 小时内就获得了 500+ upvote。</p>
+112|112|112|112|112|            <p>值得关注的是，越来越多的独立开发者开始采用"微型 SaaS"策略——用极简的功能解决特定痛点，月费 $9-$29，快速验证市场。这种模式降低了启动门槛，也让 Product Hunt 上的产品类型更加多样化。</p>
+113|113|113|113|113|            <div class="tags"><span class="tag">#发布</span><span class="tag">#新产品</span><span class="tag">#AI</span></div>
+114|114|114|114|114|            <div class="source">🔗 <a href="https://www.producthunt.com/" target="_blank">https://www.producthunt.com/</a></div>
+115|115|115|115|115|        </div>
+116|116|116|116|116|
+117|117|117|117|117|        <div style="background:#f9f9f9;border:2px dashed #ddd;border-radius:12px;padding:20px;text-align:center;margin-bottom:20px;color:#999;font-size:0.85em">📢 广告位 - Google AdSense</div>
+118|118|118|118|118|
+119|119|119|119|119|        <div class="card">
+120|120|120|120|120|            <h2>📖 独立开发者本月精选工具</h2>
+121|121|121|121|121|            <div class="meta">
+122|122|122|122|122|                <span>📅 2026年06月17日</span>
+123|123|123|123|123|                <span>📌 Curated</span>
+124|124|124|124|124|            </div>
+125|125|125|125|125|            <p>适合独立开发者使用的效率工具：Notion、Linear、Vercel、Resend、Supabase。本月新增了几个值得关注的工具——Resend 正式支持了批量邮件发送功能，Linear 推出了 AI 自动分类需求的新特性。</p>
+126|126|126|126|126|            <p>此外，Cursor 作为 AI 代码编辑器持续迭代，越来越多的独立开发者将其作为主力开发工具。结合 Supabase 做后端、Vercel 做部署，这套技术栈几乎覆盖了从开发到上线的全流程，而且大部分都有慷慨的免费套餐。</p>
+127|127|127|127|127|            <div class="tags"><span class="tag">#工具</span><span class="tag">#效率</span><span class="tag">#技术栈</span></div>
+128|128|128|128|128|            <div class="source">🔗 <a href="https://github.com/" target="_blank">https://github.com/</a></div>
+129|129|129|129|129|        </div>
+130|130|130|130|130|
+131|131|131|131|131|        <div class="card">
+132|132|132|132|132|            <h2>📖 增长案例：从0到$10K MRR</h2>
+133|133|133|133|133|            <div class="meta">
+134|134|134|134|134|                <span>📅 2026年06月16日</span>
+135|135|135|135|135|                <span>📌 Indie Hackers</span>
+136|136|136|136|136|            </div>
+137|137|137|137|137|            <p>独立开发者如何用3个月时间将产品从0做到$10K月经常性收入。这位开发者分享了他的完整路径：第1个月通过 Twitter 做冷启动获取了 200 个种子用户，第2个月根据反馈快速迭代了 3 个核心功能，第3个月通过 SEO 和内容营销实现了自然增长。</p>
+138|138|138|138|138|            <p>关键策略包括：在 Product Hunt 首发获取初始曝光、建立邮件列表做用户培育、以及通过免费试用+限时折扣的组合拳提升转化率。他强调"速度"是独立开发者最大的优势——大公司做决策要两周，你一天就能上线新功能。</p>
+139|139|139|139|139|            <div class="tags"><span class="tag">#增长</span><span class="tag">#案例</span><span class="tag">#MRR</span></div>
+140|140|140|140|140|            <div class="source">🔗 <a href="https://www.indiehackers.com/" target="_blank">https://www.indiehackers.com/</a></div>
+141|141|141|141|141|        </div>
+142|142|142|142|142|
+143|143|143|143|143|        <div style="background:#f9f9f9;border:2px dashed #ddd;border-radius:12px;padding:20px;text-align:center;margin-bottom:20px;color:#999;font-size:0.85em">📢 广告位 - Google AdSense</div>
+144|144|144|144|144|
+145|145|145|145|145|        <div class="card">
+146|146|146|146|146|            <h2>📖 Solo Developer 技术栈推荐</h2>
+147|147|147|147|147|            <div class="meta">
+148|148|148|148|148|                <span>📅 2026年06月17日</span>
+149|149|149|149|149|                <span>📌 Community</span>
+150|150|150|150|150|            </div>
+151|151|151|151|151|            <p>2026年独立开发者最佳技术栈：Next.js + Supabase + Vercel + Stripe。这套组合之所以被社区广泛推荐，是因为它在开发效率、部署成本和扩展性之间取得了极好的平衡。Next.js 的 App Router 和 Server Components 大幅简化了全栈开发的心智负担。</p>
+152|152|152|152|152|            <p>Supabase 提供了数据库、认证和存储的一站式方案，Vercel 负责部署和 CDN，Stripe 处理支付——四个工具各司其职，几乎没有重叠。社区中不少月入 $5K-$20K 的独立开发者都在使用这套技术栈，证明了它在实际商业场景中的可靠性。</p>
+153|153|153|153|153|            <div class="tags"><span class="tag">#技术栈</span><span class="tag">#推荐</span><span class="tag">#全栈</span></div>
+154|154|154|154|154|            <div class="source">🔗 <a href="https://github.com/" target="_blank">https://github.com/</a></div>
+155|155|155|155|155|        </div>
+156|156|156|156|156|
+157|157|157|157|157|        <div class="card">
+158|158|158|158|158|            <h2>💰 本周融资动态</h2>
+159|159|159|159|159|            <div class="meta">
+160|160|160|160|160|                <span>📅 2026年06月16日</span>
+161|161|161|161|161|                <span>📌 Crunchbase</span>
+162|162|162|162|162|            </div>
+163|163|163|163|163|            <p>本周独立开发者和微型 SaaS 领域的融资动态：一款 AI 驱动的客服聊天工具获得了 $2M 种子轮，创始人此前是 Stripe 的工程师；一款面向中小电商的库存管理 SaaS 完成了 $1.5M Pre-Seed 融资，产品从 idea 到上线只用了 6 周。</p>
+164|164|164|164|164|            <p>值得注意的趋势是，越来越多的天使投资人开始关注"一人公司"模式的项目——他们认为小团队在 AI 时代拥有更大的杠杆效应。一些知名独立开发者如 Pieter Levels 也在社交媒体上分享了自己的投资计划，计划孵化 10 个独立开发者项目。</p>
+165|165|165|165|165|            <div class="tags"><span class="tag">#融资</span><span class="tag">#投资</span><span class="tag">#趋势</span></div>
+166|166|166|166|166|            <div class="source">🔗 <a href="https://www.crunchbase.com/" target="_blank">https://www.crunchbase.com/</a></div>
+167|167|167|167|167|        </div>
+168|168|168|168|168|
+169|169|169|169|169|        <div style="background:#f9f9f9;border:2px dashed #ddd;border-radius:12px;padding:20px;text-align:center;margin-bottom:20px;color:#999;font-size:0.85em">📢 广告位 - Google AdSense</div>
+170|170|170|170|170|
+171|171|171|171|171|        <div class="card">
+172|172|172|172|172|            <h2>🧑‍💻 开发者社区热门话题</h2>
+173|173|173|173|173|            <div class="meta">
+174|174|174|174|174|                <span>📅 2026年06月17日</span>
+175|175|175|175|175|                <span>📌 Hacker News & Twitter/X</span>
+176|176|176|176|176|            </div>
+177|177|177|177|177|            <p>本周开发者社区最火的话题是"本地大模型时代来临"——随着 Llama.cpp 和 Ollama 的成熟，在消费级硬件上运行 70B 模型已经不是梦。这对独立开发者意味着什么？不再需要支付昂贵的 API 费用，可以更自由地实验 AI 功能。</p>
+178|178|178|178|178|            <p>另一个热议话题来自 HN 上的"Mechanical Watch"帖子——它引发了很多开发者对硬件创业的兴趣。一些开发者分享了从软件转向硬件的经历，以及小批量制造的可行路径。</p>
+179|179|179|179|179|            <div class="tags"><span class="tag">#社区</span><span class="tag">#话题</span><span class="tag">#AI</span><span class="tag">#本地模型</span></div>
+180|180|180|180|180|            <div class="source">🔗 <a href="https://news.ycombinator.com/" target="_blank">https://news.ycombinator.com/</a></div>
+181|181|181|181|181|        </div>
+182|182|182|182|182|
+183|183|183|183|183|<div style="background:linear-gradient(135deg,#667eea,#764ba2);border-radius:16px;padding:32px;text-align:center;margin:30px 0;color:white">
+184|184|184|184|184|<h3 style="margin-bottom:8px">📬 订阅获取每周精选</h3>
+185|185|185|185|185|<p style="opacity:0.9;margin-bottom:16px;font-size:0.9em">每周一封邮件，精选好工具和好资源</p>
+186|186|186|186|186|<div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap">
+187|187|187|187|187|<input type="email" placeholder="your@email.com" style="padding:10px 16px;border:none;border-radius:8px;font-size:0.95em;width:240px">
+188|188|188|188|188|<button style="padding:10px 24px;background:white;color:#667eea;border:none;border-radius:8px;font-weight:600;cursor:pointer">订阅</button>
+189|189|189|189|189|</div>
+190|190|190|190|190|</div>
+191|191|191|191|191|
+192|192|192|192|192|<footer><p>Generated by Hermes Agent · Updated 2026-06-17</p></footer>
+193|193|193|193|193|<nav style="text-align:center;padding:24px 0;border-top:1px solid #eee;margin-top:30px">
+194|194|194|194|194|<p style="color:#666;margin-bottom:12px;font-size:0.9em">🔗 AI站群旗下站点</p>
+195|195|195|195|195|<div style="display:flex;justify-content:center;flex-wrap:wrap;gap:12px">
+196|196|196|196|196|<a href="http://ai-daily.globalxyz.xyz/" style="color:#7b2ff7;text-decoration:none;font-size:0.9em">🤖 AI日报</a>
+197|197|197|197|197|<a href="http://interview.globalxyz.xyz/" style="color:#3b82f6;text-decoration:none;font-size:0.9em">🚀 English Interview</a> | <a href="http://aihot.globalxyz.xyz/" style="color:#3b82f6;text-decoration:none;font-size:0.9em">📊 AI Hot</a>
+198|198|198|198|198|<a href="http://chuangye.globalxyz.xyz/" style="color:#27ae60;text-decoration:none;font-size:0.9em">🌏 出海工具周报</a>
+199|199|199|199|199|<a href="http://indie.globalxyz.xyz/" style="color:#9b59b6;text-decoration:none;font-size:0.9em">🧑‍💻 独立开发者周刊</a>
+200|200|200|200|200|<a href="http://nocode.globalxyz.xyz/" style="color:#f39c12;text-decoration:none;font-size:0.9em">🔧 NoCode工具导航</a>
+201|201|201|201|201|</div>
+202|202|202|202|202|</nav>
+203|203|203|203|203|    <script>
+204|204|204|204|204|    function setLang(lang) {
+205|205|205|205|205|        document.body.className = 'lang-' + lang;
+206|206|206|206|206|        document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+207|207|207|207|207|        document.querySelector('.lang-switch .lang-' + lang).classList.add('active');
+208|208|208|208|208|        localStorage.setItem('site_lang', lang);
+209|209|209|209|209|    }
+210|210|210|210|210|    (function() {
+211|211|211|211|211|        var saved = localStorage.getItem('site_lang') || 'en';
+212|212|212|212|212|        setLang(saved);
+213|213|213|213|213|    })();
+214|214|214|214|214|    </script>
+215|215|215|215|215|<nav class="site-nav" style="text-align:center;padding:20px 0;border-top:1px solid #eee;margin-top:20px"><p style="color:#999;margin-bottom:10px">更多站点：</p><a href="/ai-daily-news/">AI日报站</a> | <a href="/english-interview/">English Interview Q&A</a> | <a href="/chuangye-weekly/">出海工具周报</a> | <a href="/nocode-tools/">NoCode工具导航</a></nav>
+216|216|</body>
+217|217|216|216|216|</html>
