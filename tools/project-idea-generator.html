@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="独立开发者,项目创意,产品idea,开发者工具,SaaS,创业灵感">
+    <meta name="description" content="免费在线项目Idea生成器，选择领域和技术栈，随机生成产品创意，包含目标用户、核心功能和变现模式。">
+    <title>项目Idea生成器 - 独立开发者周刊 SEO工具</title>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"项目Idea生成器","description":"免费在线产品创意生成工具","url":"http://15.152.52.70.nip.io/indie-dev-weekly/tools/project-idea-generator.html","applicationCategory":"BusinessApplication","operatingSystem":"Any"}</script>
+    <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#e0e0e0;background:#0a0a1a;min-height:100vh}
+    .bg{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#0a0a1a 0%,#1a1a3e 40%,#0d2137 70%,#0a0a1a 100%);z-index:-1}
+    .container{max-width:800px;margin:0 auto;padding:20px}
+    header{padding:30px 0 20px}
+    header h1{font-size:1.8em;background:linear-gradient(135deg,#fbbf24,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+    .breadcrumb{color:#64748b;font-size:0.85em;margin-bottom:24px}
+    .breadcrumb a{color:#60a5fa;text-decoration:none}
+    .form-group{margin-bottom:18px}
+    label{display:block;color:#94a3b8;font-size:0.9em;margin-bottom:6px;font-weight:500}
+    select{width:100%;padding:12px 16px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:10px;color:#e0e0e0;font-size:0.95em;outline:none;cursor:pointer}
+    select option{background:#1a1a3e;color:#e0e0e0}
+    .btn{padding:14px 32px;background:linear-gradient(135deg,#f59e0b,#ef4444);color:white;border:none;border-radius:10px;font-size:1em;cursor:pointer;transition:all .2s;font-weight:600;width:100%}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(245,158,11,0.3)}
+    .result-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:28px;margin-top:24px;display:none}
+    .result-card.show{display:block}
+    .idea-title{font-size:1.5em;color:#fbbf24;font-weight:700;margin-bottom:16px}
+    .idea-field{margin-bottom:16px}
+    .idea-label{color:#f97316;font-size:0.8em;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+    .idea-value{color:#e2e8f0;font-size:1em;line-height:1.7}
+    .idea-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .idea-tag{background:rgba(251,191,36,0.15);color:#fbbf24;padding:4px 14px;border-radius:20px;font-size:0.8em}
+    .history{margin-top:24px}
+    .history h3{color:#94a3b8;font-size:0.95em;margin-bottom:12px}
+    .history-item{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px 16px;margin-bottom:8px;color:#94a3b8;font-size:0.9em;cursor:pointer;transition:all .2s}
+    .history-item:hover{border-color:rgba(251,191,36,0.3);color:#e0e0e0}
+    .history-item .hist-title{color:#fbbf24;font-weight:600}
+    footer{padding:30px 0 20px;border-top:1px solid rgba(255,255,255,0.1);margin-top:40px}
+    .cross-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin:12px 0}
+    .cross-nav a{color:#94a3b8;text-decoration:none;font-size:0.9em}
+    .cross-nav a:hover{color:#60a5fa}
+    @media(max-width:600px){header h1{font-size:1.4em}}
+    </style>
+</head>
+<body><div class="bg"></div>
+<div class="container">
+    <div class="breadcrumb"><a href="/">🧑‍💻 独立开发者周刊</a> / <a href="./">SEO工具</a> / <strong>Idea生成器</strong></div>
+    <header><h1>💡 项目 Idea 生成器</h1><p style="color:#94a3b8">选择领域和技术栈，随机生成产品创意</p></header>
+    <div class="form-group"><label>选择领域</label>
+        <select id="domain"><option value="">随机</option><option value="saas">☁️ SaaS</option><option value="devtool">🛠️ 开发者工具</option><option value="ecommerce">🛒 电商</option><option value="social">💬 社交</option><option value="education">📚 教育</option><option value="health">❤️ 健康</option></select>
+    </div>
+    <div class="form-group"><label>技术栈偏好</label>
+        <select id="techstack"><option value="">不限</option><option value="react">React / Next.js</option><option value="vue">Vue / Nuxt</option><option value="python">Python / FastAPI</option><option value="node">Node.js</option><option value="flutter">Flutter / Dart</option><option value="rust">Rust</option><option value="go">Go</option><option value="ai">AI / LLM</option></select>
+    </div>
+    <button class="btn" onclick="generate()">🎲 生成 Idea</button>
+    <div class="result-card" id="resultCard">
+        <div class="idea-title" id="ideaTitle"></div>
+        <div class="idea-field"><div class="idea-label">👥 目标用户</div><div class="idea-value" id="ideaUser"></div></div>
+        <div class="idea-field"><div class="idea-label">🎯 核心功能</div><div class="idea-value" id="ideaFeatures"></div></div>
+        <div class="idea-field"><div class="idea-label">💰 变现模式</div><div class="idea-value" id="ideaMonetize"></div></div>
+        <div class="idea-field"><div class="idea-label">🚀 MVP 建议</div><div class="idea-value" id="ideaMVP"></div></div>
+        <div class="idea-tags" id="ideaTags"></div>
+    </div>
+    <div class="history" id="historySection" style="display:none">
+        <h3>📝 历史生成</h3>
+        <div id="historyList"></div>
+    </div>
+    <footer>
+        <div class="cross-nav">
+            <a href="/ai-daily-news/">🤖 AI日报</a>
+            <a href="/english-interview/">🚀 English Interview</a>
+            <a href="/chuangye-weekly/">🌏 出海工具周报</a>
+            <a href="/indie-dev-weekly/">🧑‍💻 独立开发者周刊</a>
+            <a href="/nocode-tools/">🔧 NoCode工具导航</a>
+            <a href="/cn-seo-site/">🔍 中文SEO工具箱</a>
+        </div>
+        <div class="cross-nav" style="margin-top:8px">
+            <a href="./">🏠 工具首页</a>
+            <a href="naming-generator.html">🏷️ 产品命名</a>
+            <a href="landing-page-checklist.html">✅ 落地页检查</a>
+        </div>
+        <p style="text-align:center;color:#475569;font-size:0.8em;margin-top:16px">Generated by Hermes Agent</p>
+    </footer>
+</div>
+<script>
+const ideas={
+saas:[
+{name:"文档协作平台",user:"中小企业团队、远程办公群体",features:"实时多人协作编辑、版本管理、权限控制、评论批注、模板市场",monetize:"Freemium：基础免费，团队版$9/人/月，企业版定制",mvp:"先做实时协作的文档编辑器，支持Markdown和导出PDF"},
+{name:"项目管理SaaS",user:"初创团队、自由职业者、小型工作室",features:"看板+甘特图双视图、时间追踪、客户门户、自动周报、API集成",monetize:"按项目收费，免费版3个项目，高级版$15/月",mvp:"先做极简看板，支持拖拽和截止日期提醒"},
+{name:"发票管理系统",user:"自由职业者、小微企业、咨询师",features:"自动生成发票、多币种支持、客户管理、收款追踪、税务报表",monetize:"按发票数量阶梯收费，$5-29/月",mvp:"先做在线发票生成器，支持PDF导出和邮件发送"},
+{name:"邮件营销工具",user:"电商卖家、内容创作者、营销人员",features:"可视化邮件模板、A/B测试、自动化流程、用户分群、数据分析",monetize:"按订阅人数收费，$9起步，含1000订阅者",mvp:"先做邮件模板编辑器+发送功能，集成Mailgun"},
+{name:"客户反馈平台",user:"产品经理、创业者、社区运营",features:"反馈收集墙、投票排序、Roadmap公开、用户分群、NPS追踪",monetize:"免费版100条反馈，高级版$29/月",mvp:"先做反馈收集页面+投票功能"}
+],
+devtool:[
+{name:"API Mock服务",user:"前端开发者、测试工程师、初创团队",features:"可视化API定义、Mock数据生成、自动化测试、Postman导入、团队协作",monetize:"免费1000次/天，Pro版$12/月",mvp:"先做JSON Schema到Mock数据的转换器"},
+{name:"代码片段管理器",user:"全栈开发者、技术团队",features:"云端代码库、标签分类、语法高亮、团队共享、IDE插件、AI补全",monetize:"个人免费，团队版$8/月",mvp:"先做带搜索的代码片段收藏Web App"},
+{name:"环境变量管理平台",user:"全栈开发者、DevOps工程师",features:"多环境管理、加密存储、团队共享、CI/CD集成、变更审计",monetize:"个人免费，团队版$10/月",mvp:"先做加密的环境变量存储和分享工具"},
+{name:"日志分析工具",user:"后端开发者、运维工程师",features:"实时日志流、关键词告警、错误追踪、性能分析、可视化Dashboard",monetize:"免费1GB/月，Pro版$19/月",mvp:"先做日志关键词搜索+告警功能"},
+{name:"URL短链服务",user:"开发者、营销人员、API用户",features:"短链生成、点击统计、地理位置分析、二维码生成、API接口",monetize:"免费100个/月，高级版$5/月，支持自定义域名"}
+],
+ecommerce:[
+{name:"二手书交易平台",user:"学生、读书爱好者、校园群体",features:"ISBN扫码定价、自动比价、校园面交、信用评价、书单分享",monetize:"交易抽佣5%，增值服务（鉴定、邮寄）收费",mvp:"先做ISBN扫码查价+二手书信息发布"},
+{name:"手工艺品市集",user:"手工创作者、文艺消费者",features:"作品展示、定制接单、材料包销售、教程付费、创作者分成",monetize:"交易抽佣8%，增值服务（置顶、推广）收费",mvp:"先做手工艺品展示+下单功能"},
+{name:"拼团买菜平台",user:"社区居民、家庭用户",features:"社区拼团、产地直供、次日达、团长管理、积分体系",monetize:"商品差价+团长佣金10%",mvp:"先做一个社区的拼团小程序"},
+{name:"订阅盒子服务",user:"年轻人、礼品购买者",features:"月度主题盒子、个性化推荐、开箱分享、社交传播、企业定制",monetize:"月度订阅$29-99，企业定制更高",mvp:"先做一个主题的订阅盒子，手动发货验证"}
+],
+social:[
+{name:"兴趣社群App",user:"特定爱好群体（摄影、骑行、徒步等）",features:"圈子论坛、活动组织、地点打卡、装备分享、排行榜",monetize:"会员制$5/月，线下活动抽佣",mvp:"先做一个垂直兴趣的社区论坛"},
+{name:"语音聊天室",user:"Z世代、播客爱好者、语言学习者",features:"实时语音房、话题房间、连麦PK、语音消息、房间管理",monetize:"虚拟礼物打赏、会员专属房间",mvp:"先做一个多人语音聊天室"},
+{name:"技能交换平台",user:"学生、职场新人、终身学习者",features:"技能发布、匹配推荐、在线约课、评价系统、学习记录",monetize:"交易抽佣10%，高级功能会员制",mvp:"先做技能发布+匹配的Web App"},
+{name:"匿名树洞社区",user:"青少年、压力人群、需要倾诉的人",features:"匿名发帖、情绪标签、暖心回复、心理测试、树洞日记",monetize:"增值表情/装扮、心理测评付费",mvp:"先做匿名发帖+回复功能"}
+],
+education:[
+{name:"AI题库生成器",user:"教师、培训机构、自学者",features:"知识点输入→自动出题、多题型支持、难度分级、答案解析、导出打印",monetize:"免费版每天10题，Pro版$9/月无限出题",mvp:"先做选择题和填空题自动生成"},
+{name:"在线刷题平台",user:"考研党、考证族、程序员",features:"真题库、错题本、模拟考试、学习统计、排名竞赛",monetize:"题库免费，VIP解析$19/月",mvp:"先做一个垂直领域的题库+刷题"},
+{name:"语言陪练匹配",user:"外语学习者、想练口语的人",features:"语伴匹配、语音通话、翻译辅助、学习记录、等级认证",monetize:"免费匹配+付费专业导师",mvp:"先做简单的语伴匹配+文字聊天"},
+{name:"编程学习路径",user:"编程初学者、转行者、大学生",features:"个性化学习路径、项目实战、代码批改、社区答疑、证书",monetize:"免费基础路径，进阶课程$49起",mvp:"先做一个Python入门的学习路线图"}
+],
+health:[
+{name:"喝水提醒App",user:"久坐上班族、健身人群、健康意识强的人",features:"智能提醒、饮水记录、目标设定、数据统计、智能手表同步",monetize:"免费版基础功能，Pro版$2.99解锁高级统计",mvp:"先做定时提醒+手动记录"},
+{name:"冥想计时器",user:"压力大的人群、冥想初学者、瑜伽爱好者",features:"自定义时长、白噪音、呼吸引导、连续打卡、数据统计",monetize:"免费版基础功能，高级音频$4.99/月",mvp:"先做简单的冥想计时+打卡"},
+{name:"饮食拍照记录",user:"减肥人群、健身爱好者、糖尿病患者",features:"拍照识别热量、营养分析、饮食趋势、食谱推荐、体重追踪",monetize:"免费基础识别，高级分析$5.99/月",mvp:"先做拍照+手动记录热量"},
+{name:"睡眠分析工具",user:"失眠人群、打鼾伴侣、健康追踪者",features:"录音分析、打鼾检测、入睡时间、起床时间、睡眠质量评分",monetize:"免费版基础功能，详细报告$3.99/月",mvp:"先做夜间录音+手动评分"}
+]
+};
+
+let history=[];
+function generate(){
+const domain=document.getElementById('domain').value;
+const techstack=document.getElementById('techstack').value;
+let pool=[];
+if(domain&&ideas[domain]){pool=ideas[domain];}
+else{Object.values(ideas).forEach(a=>pool=pool.concat(a));}
+const idea=pool[Math.floor(Math.random()*pool.length)];
+const techHint=techstack?('（推荐技术栈：'+techstack+'）'):'';
+document.getElementById('ideaTitle').textContent=idea.name+techHint;
+document.getElementById('ideaUser').textContent=idea.user;
+document.getElementById('ideaFeatures').textContent=idea.features;
+document.getElementById('ideaMonetize').textContent=idea.monetize;
+document.getElementById('ideaMVP').textContent=idea.mvp;
+const domainNames={saas:'SaaS',devtool:'开发者工具',ecommerce:'电商',social:'社交',education:'教育',health:'健康'};
+const tags=document.getElementById('ideaTags');
+tags.innerHTML='';
+tags.innerHTML+='<span class="idea-tag">'+(domainNames[domain]||'综合')+'</span>';
+if(techstack)tags.innerHTML+='<span class="idea-tag">'+techstack+'</span>';
+tags.innerHTML+='<span class="idea-tag">MVP优先</span>';
+document.getElementById('resultCard').classList.add('show');
+document.getElementById('resultCard').scrollIntoView({behavior:'smooth'});
+history.unshift({title:idea.name,time:new Date().toLocaleString()});
+if(history.length>5)history.pop();
+renderHistory();
+}
+function renderHistory(){
+if(history.length===0)return;
+document.getElementById('historySection').style.display='block';
+document.getElementById('historyList').innerHTML=history.map(h=>'<div class="history-item"><span class="hist-title">'+h.title+'</span> · '+h.time+'</div>').join('');
+}
+</script>
+</body>
+</html>

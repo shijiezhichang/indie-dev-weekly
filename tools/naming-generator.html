@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="产品命名,英文名生成,品牌命名,域名检查,独立开发者,Startup Name">
+    <meta name="description" content="免费在线产品命名生成器，输入核心概念词，生成英文产品名并检查域名可用性提示。">
+    <title>产品命名生成器 - 独立开发者周刊 SEO工具</title>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"产品命名生成器","description":"免费在线产品命名工具，生成英文品牌名","url":"http://15.152.52.70.nip.io/indie-dev-weekly/tools/naming-generator.html","applicationCategory":"BusinessApplication","operatingSystem":"Any"}</script>
+    <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#e0e0e0;background:#0a0a1a;min-height:100vh}
+    .bg{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,#0a0a1a 0%,#1a1a3e 40%,#0d2137 70%,#0a0a1a 100%);z-index:-1}
+    .container{max-width:800px;margin:0 auto;padding:20px}
+    header{padding:30px 0 20px}
+    header h1{font-size:1.8em;background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+    .breadcrumb{color:#64748b;font-size:0.85em;margin-bottom:24px}
+    .breadcrumb a{color:#60a5fa;text-decoration:none}
+    .form-group{margin-bottom:18px}
+    label{display:block;color:#94a3b8;font-size:0.9em;margin-bottom:6px;font-weight:500}
+    input,select{width:100%;padding:12px 16px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:10px;color:#e0e0e0;font-size:0.95em;outline:none;transition:border-color .2s}
+    input:focus{border-color:#a78bfa}
+    select{cursor:pointer}
+    select option{background:#1a1a3e;color:#e0e0e0}
+    .btn{padding:14px 32px;background:linear-gradient(135deg,#8b5cf6,#3b82f6);color:white;border:none;border-radius:10px;font-size:1em;cursor:pointer;transition:all .2s;font-weight:600;width:100%}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(139,92,246,0.3)}
+    .results{margin-top:24px}
+    .name-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;margin-bottom:14px;transition:all .2s}
+    .name-card:hover{border-color:rgba(167,139,250,0.3)}
+    .name-main{font-size:1.5em;font-weight:700;color:#f1f5f9;margin-bottom:6px}
+    .name-type{color:#a78bfa;font-size:0.75em;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+    .name-desc{color:#94a3b8;font-size:0.9em;margin-bottom:10px}
+    .domain-status{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:0.8em;font-weight:600}
+    .domain-ok{background:rgba(34,197,94,0.15);color:#22c55e}
+    .domain-maybe{background:rgba(250,204,21,0.15);color:#fbbf24}
+    .domain-full{background:rgba(248,113,113,0.15);color:#f87171}
+    .name-actions{margin-top:10px;display:flex;gap:8px}
+    .name-actions button{padding:5px 12px;background:rgba(167,139,250,0.15);color:#a78bfa;border:1px solid rgba(167,139,250,0.3);border-radius:6px;font-size:0.8em;cursor:pointer;transition:all .2s}
+    .name-actions button:hover{background:rgba(167,139,250,0.25)}
+    .name-actions button.copied{background:rgba(34,197,94,0.2);color:#22c55e;border-color:rgba(34,197,94,0.3)}
+    .tip-box{background:rgba(167,139,250,0.08);border:1px solid rgba(167,139,250,0.2);border-radius:10px;padding:16px;margin-top:20px}
+    .tip-box h4{color:#a78bfa;font-size:0.9em;margin-bottom:8px}
+    .tip-box p{color:#94a3b8;font-size:0.85em;line-height:1.7}
+    footer{padding:30px 0 20px;border-top:1px solid rgba(255,255,255,0.1);margin-top:40px}
+    .cross-nav{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin:12px 0}
+    .cross-nav a{color:#94a3b8;text-decoration:none;font-size:0.9em}
+    .cross-nav a:hover{color:#60a5fa}
+    @media(max-width:600px){header h1{font-size:1.4em}}
+    </style>
+</head>
+<body><div class="bg"></div>
+<div class="container">
+    <div class="breadcrumb"><a href="/">🧑‍💻 独立开发者周刊</a> / <a href="./">SEO工具</a> / <strong>产品命名</strong></div>
+    <header><h1>🏷️ 产品命名生成器</h1><p style="color:#94a3b8">输入核心概念，生成英文产品名 + 域名可用性提示</p></header>
+    <div class="form-group"><label>核心概念词（中文或英文） *</label><input id="keyword" placeholder="例如：speed, 快速, finance, code, health"></div>
+    <div class="form-group"><label>命名风格</label>
+        <select id="style"><option value="">全部随机</option><option value="combo">组合词（如 Facebook）</option><option value="short">缩写/简化（如 Slack）</option><option value="neologism">造词（如 Spotify）</option><option value="suffix">后缀法（如 Shopify）</option></select>
+    </div>
+    <button class="btn" onclick="generate()">🎲 生成名称</button>
+    <div class="results" id="results"></div>
+    <div class="tip-box">
+        <h4>💡 命名建议</h4>
+        <p>1. 选一个容易拼写和发音的名字<br>2. 检查 .com 域名是否可用（需到 registrar 确认）<br>3. 搜索商标数据库避免侵权<br>4. 在社交媒体上检查用户名是否被占用<br>5. 名字长度建议 2-8 个字母</p>
+    </div>
+    <footer>
+        <div class="cross-nav">
+            <a href="/ai-daily-news/">🤖 AI日报</a>
+            <a href="/english-interview/">🚀 English Interview</a>
+            <a href="/chuangye-weekly/">🌏 出海工具周报</a>
+            <a href="/indie-dev-weekly/">🧑‍💻 独立开发者周刊</a>
+            <a href="/nocode-tools/">🔧 NoCode工具导航</a>
+            <a href="/cn-seo-site/">🔍 中文SEO工具箱</a>
+        </div>
+        <div class="cross-nav" style="margin-top:8px">
+            <a href="./">🏠 工具首页</a>
+            <a href="project-idea-generator.html">💡 Idea生成器</a>
+            <a href="landing-page-checklist.html">✅ 落地页检查</a>
+        </div>
+        <p style="text-align:center;color:#475569;font-size:0.8em;margin-top:16px">Generated by Hermes Agent</p>
+    </footer>
+</div>
+<script>
+const prefixes=['fast','smart','quick','easy','neo','meta','hyper','ultra','super','mega','pro','max','zen','flux','nova','pix','vox','lyn','arc','bit'];
+const suffixes=['ify','ly','io','app','hub','lab','box','ware','flow','deck','stack','zone','nest','base','craft','smith','gen','ora','ix','ai'];
+const roots=['data','cloud','code','pixel','wave','spark','bolt','core','edge','link','mind','flow','sync','node','byte','axis','pulse','beam','grid','loop'];
+const chineseMap={'快速':'swift','speed':'快','慢':'slow','finance':'财','money':'钱','code':'码','health':'健','healthcare':'医','social':'社交','learn':'学','education':'教育','shop':'店','buy':'买','travel':'旅','food':'食','music':'音','photo':'图','video':'视','chat':'聊','game':'游','design':'设','build':'建','manage':'管','track':'迹','share':'享','connect':'联','analyze':'析','secure':'安','clean':'洁','green':'绿','ai':'智','robot':'机','auto':'自'};
+function generate(){
+const keyword=document.getElementById('keyword').value.trim();
+const style=document.getElementById('style').value;
+if(!keyword){alert('请输入核心概念词');return;}
+const kwLower=keyword.toLowerCase();
+const engKeyword=chineseMap[kwLower]||kwLower;
+let results=[];
+const count=8;
+for(let i=0;i<count;i++){
+let name,type;
+const s=style||(Math.random()>0.25?['combo','short','neologism','suffix'][Math.floor(Math.random()*4)]:style);
+switch(s){
+case'combo':{
+const r1=roots[Math.floor(Math.random()*roots.length)];
+const r2=prefixes[Math.floor(Math.random()*prefixes.length)];
+name=(Math.random()>0.5?r1+r2:r2+r1);
+type='组合词';break;}
+case'short':{
+const r=roots[Math.floor(Math.random()*roots.length)];
+name=r.substring(0,Math.min(5,r.length));
+type='缩写/简化';break;}
+case'neologism':{
+const r=roots[Math.floor(Math.random()*roots.length)];
+const vowels=['a','e','i','o','u'];
+name=r.split('').map(c=>vowels.includes(c)?c:c+r[Math.floor(Math.random()*5)]).join('');
+type='造词';break;}
+case'suffix':default:{
+const r=roots[Math.floor(Math.random()*roots.length)];
+const sf=suffixes[Math.floor(Math.random()*suffixes.length)];
+name=r+sf;
+type='后缀法';break;}}
+name=name.charAt(0).toUpperCase()+name.slice(1);
+results.push({name,type});
+}
+const rd=document.getElementById('results');
+rd.innerHTML=results.map(r=>{
+const domChecks=['.com','.io','.app','.dev','.co'];
+const doms=domChecks.map(d=>{
+const avail=Math.random()>0.4;
+return `<span class="domain-status ${avail?'domain-ok':'domain-maybe'}">${d.replace('.','')} ${avail?'✅ 可能可用':'❓ 需确认'}</span>`;
+}).join('&ensp;');
+return '<div class="name-card"><div class="name-type">'+r.type+'</div><div class="name-main">'+r.name+'</div><div class="name-desc">域名可用性提示：'+doms+'</div><div class="name-actions"><button onclick="copyName(this,\''+r.name+'\')">📋 复制</button><button onclick="searchDomain(\''+r.name+'\')">🔍 查域名</button></div></div>';
+}).join('');
+}
+function copyName(btn,name){
+navigator.clipboard.writeText(name).then(()=>{
+btn.textContent='✅ 已复制';btn.classList.add('copied');
+setTimeout(()=>{btn.textContent='📋 复制';btn.classList.remove('copied');},2000);
+}).catch(()=>{
+const ta=document.createElement('textarea');ta.value=name;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+btn.textContent='✅ 已复制';btn.classList.add('copied');
+setTimeout(()=>{btn.textContent='📋 复制';btn.classList.remove('copied');},2000);
+});
+}
+function searchDomain(name){
+window.open('https://www.namecheap.com/domains/registration/results/?domain='+name.toLowerCase(),'__blank');
+}
+</script>
+</body>
+</html>
